@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Tes = () => {
+const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const toggleForm = () => setIsLogin(!isLogin);
 
@@ -230,4 +230,4 @@ const Tes = () => {
   );
 };
 
-export default Tes;
+export default Auth;
