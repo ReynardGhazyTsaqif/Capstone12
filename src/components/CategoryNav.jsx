@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CategoryNav = () => {
-  const categories = ["Sport", "Medical", "Business", "Education"];
+  const categories = ["Sport", "Medical", "Business", "Education", "Politics", "National", "International", "Jobs"];
 
   return (
-    <div className="flex flex-wrap md:flex-nowrap items-center justify-start gap-4 px-10 py-4">
+    <div className="flex flex-wrap md:flex-wrap items-center justify-start gap-4 px-10 py-4">
       {categories.map((cat, idx) => (
         <Link
           key={idx}
