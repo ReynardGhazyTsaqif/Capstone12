@@ -3,9 +3,8 @@ import React from "react";
 function Dashboard() {
   return (
     <div className="w-full h-full px-4 md:px-10">
-      {/* Headline + Trending */}
       <div className="flex flex-col md:flex-row w-full gap-6">
-        {/* Headline */}
+        {/* Banner */}
         <div className="w-full md:w-9/12">
           <div className="h-64 bg-gray-300 flex items-center justify-center text-2xl font-semibold text-white rounded-md">
             Headline
@@ -40,10 +39,10 @@ function Dashboard() {
             <div className="w-full md:w-9/12">
               <h3 className="font-semibold">Title</h3>
               <p className="text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Tenetur voluptate ipsam, illum iure dicta consectetur, error
-                quaerat, facilis quasi dolore adipisci magni alias repellat
-                asperiores ipsum nesciunt dolorum quae accusantium!
+                Lorm ipsum dolor sit amet, consectetur adipisicing elit. Tenetur
+                voluptate ipsam, illum iure dicta consectetur, error quaerat,
+                facilis quasi dolore adipisci magni alias repellat asperiores
+                ipsum nesciunt dolorum quae accusantium!
               </p>
             </div>
             <div className="w-full md:w-24 md:h-20 h-40 bg-gray-300 rounded-md"></div>

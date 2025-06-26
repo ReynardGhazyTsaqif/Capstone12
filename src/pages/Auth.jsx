@@ -6,7 +6,7 @@ const Auth = () => {
 
   return (
     <div className="relative w-full min-h-screen overflow-y-auto">
-      {/* Background blur image */}
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center blur-xs"
         style={{ backgroundImage: "url('/img/Bg-auth.avif')" }}
@@ -17,7 +17,7 @@ const Auth = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-3/4 h-[550px] rounded-[10px] overflow-hidden bg-cover bg-center flex flex-col md:flex-row"
         style={{ backgroundImage: "url('/img/Bg-auth.avif')" }}
       >
-        {/* Left Side Content */}
+        {/* Konten kanan */}
         <div className="hidden md:flex relative z-10 w-1/2 h-full flex-col justify-between p-10 text-black">
           <div>
             <h2 className="text-3xl font-bold flex items-center gap-2">
@@ -68,9 +68,9 @@ const Auth = () => {
           </div>
         </div>
 
-        {/* Right Side Form Container */}
+        {/* konten kiri */}
         <div className="relative w-full md:w-1/2 h-full overflow-hidden backdrop-blur-xs">
-          {/* LOGIN FORM */}
+          {/* login form */}
           <div
             className={`absolute top-0 left-0 w-full h-full px-8 transition-all duration-700 ease-in-out ${
               isLogin
@@ -144,7 +144,7 @@ const Auth = () => {
             </div>
           </div>
 
-          {/* REGISTER FORM */}
+          {/* Register Form */}
           <div
             className={`absolute top-0 left-0 w-full h-full px-8 transition-all duration-700 ease-in-out ${
               isLogin

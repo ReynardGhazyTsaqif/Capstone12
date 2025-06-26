@@ -1,6 +1,38 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Detail() {
+  //detail berita
+  const { id } = useParams();
+
+  // dummy berita
+  const stories = [
+    {
+      id: "1",
+      title: "Belajar Sport",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus provident sit enim iusto exercitationem, quaerat commodi earum vero! Laudantium recusandae et veritatis voluptatum! Molestiae placeat sapiente at cum, sequi nisi",
+      date: "25/06/2025 12:00 PM",
+    },
+  ];
+
+  const berita = stories.find((item) => item.id === id);
+
+  const handleBookmark = () => {
+    const existing = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+
+    // Cek duplikasi berdasarkan id
+    const alreadyBookmarked = existing.find((item) => item.id === berita.id);
+    if (!alreadyBookmarked) {
+      const updated = [...existing, berita];
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      alert("Berita telah ditambahkan ke Bookmark");
+    } else {
+      alert("Berita sudah ada di Bookmark");
+    }
+  };
+
   const categories = [
     "Sport",
     "Medical",
@@ -11,6 +43,19 @@ function Detail() {
     "International",
     "Jobs",
   ];
+
+  // fitur like
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(100);
+
+  const handleLike = () => {
+    if (liked) {
+      setLikeCount((prevCount) => prevCount - 1);
+    } else {
+      setLikeCount((prevCount) => prevCount + 1);
+    }
+    setLiked(!liked);
+  };
 
   return (
     <div className="min-h-screen w-full flex flex-col lg:flex-row gap-4 p-4 items-start bg-gray-100">
@@ -46,32 +91,46 @@ function Detail() {
           <div className="px-4 w-full flex flex-col md:flex-row overflow-hidden">
             <div className="w-full md:w-9/12">
               <div className="text-xl font-semibold mb-2 uppercase">
-                Lorem ipsum dolor sit amet
+                {berita?.title}
               </div>
               <div className="text-base mb-2">
-                By Reynard <br /> 25/06/2025 12:00 PM
+                By Reynard <br /> {berita?.date}
               </div>
-              <div className="flex gap-4 text-sm text-gray-600 mb-4">
-                <span>👁 2.5m</span>
-                <span>💬 15k</span>
-                <span>❤️ 39k</span>
+              <div className="flex gap-4 text-sm text-gray-600 mb-4 items-center">
+                <span>
+                  <i className="fa fa-eye mr-1" /> 2.5m
+                </span>
+                <span>
+                  <i className="fa fa-comment mr-1" /> 15k
+                </span>
+                <button
+                  onClick={handleLike}
+                  className="flex items-center focus:outline-none"
+                >
+                  <i
+                    className={`fa fa-heart mr-1 transition-colors duration-300 ${
+                      liked ? "text-red-500" : "text-gray-400"
+                    }`}
+                  />
+                  {likeCount.toLocaleString()}
+                </button>
               </div>
             </div>
             <div className="w-full md:w-3/12 text-sm mt-4 md:mt-0">
-              <button className="border rounded-full px-3 py-2 mb-4 w-full">
+              <button
+                onClick={handleBookmark}
+                className="border rounded-full px-3 py-2 mb-4 w-full hover:bg-gray-100"
+              >
                 Save to pocket
               </button>
-              <button className="bg-blue-300 rounded-full px-3 py-2 w-full">
+              <button className="bg-blue-300 rounded-full px-3 py-2 w-full hover:bg-blue-500">
                 Share on media
               </button>
             </div>
           </div>
         </div>
         <p className="text-gray-800 leading-relaxed px-3 text-justify mb-4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum iste, deleniti quaerat fugiat ad dolores dolor delectus quasi vitae autem laborum ut nihil dignissimos dicta laudantium cupiditate! Vero, dicta eaque.
-        </p>
-        <p className="text-gray-800 leading-relaxed px-3 text-justify mb-4">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti tempore fuga nam unde distinctio explicabo fugiat, quae rerum maxime repellat porro assumenda earum reiciendis itaque reprehenderit at, nemo obcaecati quas.
+          {berita?.content || "Berita tidak ditemukan."}
         </p>
       </div>
 

@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sport() {
   return (
     <div className=" text-gray-800">
-      {/* Featured Article */}
+      {/* Banner Berita */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <div
           className="absolute inset-0 flex items-center bg-cover bg-center"
@@ -41,7 +42,8 @@ function Sport() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: "Lorem ipsum dolor sit amet",
+              id: 1,
+              title: "Belajar Sport",
               image: "https://placehold.co/400",
               date: "June 25, 2025",
             },
@@ -85,12 +87,12 @@ function Sport() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                   varius enim nec justo pretium...
                 </p>
-                <a
-                  href="#"
+                <Link
+                  to={`/detail/${story.id}`}
                   className="text-blue-800 text-sm font-medium mt-3 inline-block"
                 >
                   READ MORE →
-                </a>
+                </Link>
               </div>
             </div>
           ))}
