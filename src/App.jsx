@@ -2,13 +2,13 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Notfound from "./pages/Notfound";
-import Navbar from "./components/navbar";
 import Dashboard from "./pages/Dashboard";
 import CategoryNav from "./components/CategoryNav";
 import Sport from "./pages/Sport";
 import Detail from "./pages/Detail";
 import Bookmark from "./pages/Bookmark";
 import SearchResult from "./pages/SearchResult";
+import Navbar from "./components/Navbar";
 
 function App() {
   const location = useLocation();
